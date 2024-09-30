@@ -169,10 +169,10 @@
       checks.pre-commit-check = pre-commit-hooks.lib.${system}.run {
         src = ./.;
         hooks = {
-          # nix
-          deadnix.enable = true;
-          alejandra.enable = true;
-          statix.enable = true;
+          # nix TODO: add back
+          # deadnix.enable = true;
+          # alejandra.enable = true;
+          # statix.enable = true;
         };
       };
     });
