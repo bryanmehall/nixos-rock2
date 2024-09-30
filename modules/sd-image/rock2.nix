@@ -12,7 +12,7 @@
   uboot = pkgs.callPackage ../../pkgs/u-boot-radxa/prebuilt.nix {};
 in {
   imports = [
-    ./sd-image-rock5a.nix
+    ./sd-image-rock2.nix
     # "${nixpkgs}/nixos/modules/installer/sd-card/sd-image.nix"
     "${nixpkgs}/nixos/modules/profiles/base.nix"
   ];

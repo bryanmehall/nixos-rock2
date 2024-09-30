@@ -15,18 +15,16 @@
 }:
 (linuxManualConfig rec {
   modDirVersion = "6.1.43";
-  version = "${modDirVersion}-xunlong-rk3588";
+  version = "${modDirVersion}-radxa";
   extraMeta.branch = "6.1";
 
-  # https://github.com/orangepi-xunlong/linux-orangepi/tree/orange-pi-6.1-rk35xx
+  #https://github.com/radxa/kernel
   src = fetchFromGitHub {
-    owner = "orangepi-xunlong";
-    repo = "linux-orangepi";
-    rev = "752c0d0a12fdce201da45852287b48382caa8c0f";
-    hash = "sha256-tVu/3SF/+s+Z6ytKvuY+ZwqsXUlm40yOZ/O5kfNfUYc=";
+    owner = "radxa";
+    repo = "kernel";
+    rev = "d13b6b79415bd7ecaed6028278e20a2b06580762";
+    hash = "";
   };
-
-
 
   # Steps to the generated kernel config file
   #  1. git clone --depth 1 https://github.com/armbian/linux-rockchip.git -b rk-6.1-rkr1
@@ -35,7 +33,7 @@
   #  4. `cd linux-rockchip` and `make rk35xx_vendor_defconfig` to configure the kernel.
   #  5. Then use `make menuconfig` in kernel's root directory to view and customize the kernel(like enable/disable rknpu, rkflash, ACPI(for UEFI) etc).
   #  6. copy the generated .config to ./pkgs/kernel/rk35xx_vendor_config and commit it.
-  # 
+  #
   configfile = ./rk35xx_vendor_config;
   allowImportFromDerivation = true;
 })

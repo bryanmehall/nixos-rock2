@@ -3,7 +3,7 @@
   fetchFromGitHub,
 }:
 stdenvNoCC.mkDerivation {
-  pname = "rkbin-rk3588";
+  pname = "3";
   version = "0.0.1";
 
   # https://github.com/armbian/rkbin/tree/master

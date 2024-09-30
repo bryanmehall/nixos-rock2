@@ -45,9 +45,13 @@ in {
   #    https://github.com/armbian/linux-rockchip/blob/rk-5.10-rkr4/arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts
   hardware = {
     deviceTree = {
-      # https://github.com/radxa/overlays/blob/main/arch/arm64/boot/dts/rockchip/overlays/
-      name = "rockchip/rk3588s-rock-5a.dtb";
-      overlays = [];
+      # included in kernel tree in pkgs/kernel/vendor.nix
+      # https://github.com/radxa/kernel/blob/linux-6.1-stan-rkr1/arch/arm64/boot/dts/rockchip/rk3528-rock-2a.dts
+      name = "rockchip/rk3528-rock-2a.dtb";
+      overlays = [
+        # TODO: add overlays here  by combining these overlays into a file for the hat
+        # https://github.com/radxa/overlays/tree/main/arch/arm64/boot/dts/rockchip/overlays
+      ];
     };
 
     firmware = [];
