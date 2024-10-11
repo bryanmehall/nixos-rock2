@@ -122,7 +122,7 @@ in {
         /boot/firmware partition on the SD image.
       '';
     };
-
+    # TODO: remove all uses of lib.mdDoc
     populateRootCommands = mkOption {
       example = literalExpression "''\${config.boot.loader.generic-extlinux-compatible.populateCmd} -c \${config.system.build.toplevel} -d ./files/boot''";
       description = lib.mdDoc ''
@@ -189,7 +189,7 @@ in {
     }:
       stdenv.mkDerivation {
         name = config.sdImage.imageName;
-
+        version = "2024.10.07";
         nativeBuildInputs =
           [dosfstools e2fsprogs libfaketime mtools util-linux]
           ++ lib.optional config.sdImage.compressImage zstd;

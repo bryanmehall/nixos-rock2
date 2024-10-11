@@ -2,7 +2,7 @@
   description = "A minimal NixOS configuration for the Radxa Rock2 (RK3528A)";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "git+file:../nixpkgs"; #"github:NixOS/nixpkgs/nixos-23.11";
     flake-utils.url = "github:numtide/flake-utils";
 
     nixos-generators = {
@@ -26,7 +26,6 @@
     self,
     nixpkgs,
     flake-utils,
-    nixos-generators,
     pre-commit-hooks,
     ...
   }: let
@@ -97,29 +96,29 @@
                 }
               ];
             }))
-          self.nixosModules)
-        # UEFI system, boot via edk2-rk3588 - fully native
-        // (nixpkgs.lib.mapAttrs'
-          (name: board:
-            nixpkgs.lib.nameValuePair
-            (name + "-uefi")
-            (nixpkgs.lib.nixosSystem {
-              system = aarch64System; # native or qemu-emulated
-              specialArgs.rk3588 = {
-                inherit nixpkgs;
-                pkgsKernel = pkgsNative;
-              };
-              modules = [
-                board.core
-                ./modules/configuration.nix
-                {
-                  networking.hostName = name;
-                }
-
-                nixos-generators.nixosModules.all-formats
-              ];
-            }))
           self.nixosModules);
+      # UEFI system, boot via edk2-rk3588 - fully native
+      # // (nixpkgs.lib.mapAttrs'
+      #   (name: board:
+      #     nixpkgs.lib.nameValuePair
+      #     (name + "-uefi")
+      #     (nixpkgs.lib.nixosSystem {
+      #       system = aarch64System; # native or qemu-emulated
+      #       specialArgs.rk3588 = {
+      #         inherit nixpkgs;
+      #         pkgsKernel = pkgsNative;
+      #       };
+      #       modules = [
+      #         board.core
+      #         ./modules/configuration.nix
+      #         {
+      #           networking.hostName = name;
+      #         }
+
+      #         nixos-generators.nixosModules.all-formats
+      #       ];
+      #     }))
+      #   self.nixosModules);
     }
     // flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs {inherit system;};

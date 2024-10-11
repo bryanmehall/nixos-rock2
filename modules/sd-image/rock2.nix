@@ -6,9 +6,11 @@
   ...
 }: let
   inherit (rk3588) nixpkgs;
-
   rootPartitionUUID = "14e19a7b-0ae0-484d-9d54-43bd6fdc20c7";
-  # rkbin-rk3588 = pkgs.callPackage ../../pkgs/rkbin-rk3588 {};
+  # rkbin = pkgs.callPackage ../../pkgs/rkbin {};
+  #uboot = pkgs.ubootRock2A;#pkgs.callPackage ../../pkgs/u-boot-radxa/build-from-source.nix {
+  # inherit rkbin;
+  # };
   uboot = pkgs.callPackage ../../pkgs/u-boot-radxa/prebuilt.nix {};
 in {
   imports = [

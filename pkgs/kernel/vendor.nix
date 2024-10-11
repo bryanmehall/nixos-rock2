@@ -23,7 +23,7 @@
     owner = "radxa";
     repo = "kernel";
     rev = "d13b6b79415bd7ecaed6028278e20a2b06580762";
-    hash = "";
+    hash = "sha256-BAv4CyzfK4PzVvS9hlBvoeQ6IuDhhGjEhUMKQtWlTpo=";
   };
 
   # Steps to the generated kernel config file

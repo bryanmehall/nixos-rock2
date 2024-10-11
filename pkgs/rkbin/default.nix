@@ -10,11 +10,11 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "armbian";
     repo = "rkbin";
-    rev = "ff684f607af661ac0ef5ce59f0533adb2beb6e12";
-    sha256 = "sha256-sOhdlvdQrH7eykPV2y2r7/NqNcxdgtnBshQAka6ZXD0=";
+    rev = "12657ed7c65f16f89e6bd5ea82ca670d3324fc70";
+    sha256 = "sha256-1NntZJlE70NEsnkvgCouMERUHUpPs02DtGMayMJSOAc=";
   };
 
   installPhase = ''
-    mkdir $out && cp rk35/rk3588* $out/
+    mkdir $out && cp rk35/rk3528* $out/
   '';
 }
