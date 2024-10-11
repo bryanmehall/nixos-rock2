@@ -132,6 +132,9 @@
 
         # UEFI raw image
         rawEfiImage-rock2 = self.nixosConfigurations.rock2-uefi.config.formats.raw-efi;
+
+        # export core and sdImage for use in building a custom package
+        inherit (self.nixosModules.rock2);
       };
 
       devShells.fhsEnv =
