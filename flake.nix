@@ -2,7 +2,7 @@
   description = "A minimal NixOS configuration for the Radxa Rock2 (RK3528A)";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
 
     nixos-generators = {
