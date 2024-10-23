@@ -16,3 +16,4 @@ nix-build/
 outputs/
 *.ext4
 *.zst
+rock2-sd-image-24.11.20241009.5633bcf-aarch64-linux.img
